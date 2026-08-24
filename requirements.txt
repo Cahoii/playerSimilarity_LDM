@@ -1,0 +1,63 @@
+# ==================================
+# DATA LOADING & MANIPULATION
+# ==================================
+kagglehub[pandas-datasets]
+pandas
+numpy
+
+# ==================================
+# WEB SCRAPING
+# ==================================
+beautifulsoup4
+selenium
+undetected-chromedriver
+
+# ==================================
+# EXPLORATORY DATA ANALYSIS
+# ==================================
+missingno
+
+# ==================================
+# DATA VISUALIZATION
+# ==================================
+matplotlib
+seaborn
+plotly
+
+# ==================================
+# MACHINE LEARNING & PREPROCESSING
+# ==================================
+scikit-learn
+imbalanced-learn
+
+# ==================================
+# MACHINE LEARNING MODELS
+# ==================================
+torch
+xgboost
+lightgbm
+catboost
+
+# ==================================
+# HYPERPARAMETER OPTIMIZATION
+# ==================================
+optuna
+
+# ==================================
+# MODEL EXPLAINABILITY
+# ==================================
+shap
+
+# ==================================
+# UTILITIES
+# ==================================
+joblib
+tqdm
+
+# ==================================
+# JUPYTER
+# ==================================
+jupyter
+ipykernel
+notebook
+
