@@ -174,3 +174,4 @@ data/player_embeddings.db
 data/dataset_tokenized.csv
 data/dataset_cleaned.csv
 
+/scratch
