@@ -1,13 +1,13 @@
 import csv
 import time
+import os
 from bs4 import BeautifulSoup
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-base_url = "https://sofifa.com/?hl=en-US&showCol%5B%5D=ae&showCol%5B%5D=hi&showCol%5B%5D=wi&showCol%5B%5D=pf&showCol%5B%5D=oa&showCol%5B%5D=bp&showCol%5B%5D=vl&showCol%5B%5D=ta&showCol%5B%5D=ts&showCol%5B%5D=to&showCol%5B%5D=tp&showCol%5B%5D=te&showCol%5B%5D=td&showCol%5B%5D=tg&showCol%5B%5D=bt"
-
+base_url = "https://sofifa.com/players?showCol%5B%5D=ae&showCol%5B%5D=hi&showCol%5B%5D=wi&showCol%5B%5D=pf&showCol%5B%5D=oa&showCol%5B%5D=bp&showCol%5B%5D=ta&showCol%5B%5D=ts&showCol%5B%5D=to&showCol%5B%5D=tp&showCol%5B%5D=te&showCol%5B%5D=td&showCol%5B%5D=tg&showCol%5B%5D=bt"
 
 def scrape_sofifa(max_pages=2):
     # Khởi tạo trình duyệt chống bot
@@ -16,7 +16,7 @@ def scrape_sofifa(max_pages=2):
     # options.add_argument('--headless')
 
     print("Đang khởi tạo trình duyệt Chrome ẩn danh...")
-    driver = uc.Chrome(options=options)
+    driver = uc.Chrome(options=options, version_main=151)
 
     all_players = []
     header_labels = []
@@ -112,7 +112,8 @@ def scrape_sofifa(max_pages=2):
         ]
     header_labels[0] = "ID/Avatar"
 
-    filename = "sofifa_players.csv"
+    filename = "data/dataset.csv"
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, mode="w", encoding="utf-8-sig", newline="") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(header_labels[:max_cols])
@@ -126,5 +127,5 @@ def scrape_sofifa(max_pages=2):
 
 
 if __name__ == "__main__":
-    # 6000 cầu thủ, 100 trang, mỗi trang 60 cầu thủ
-    scrape_sofifa(max_pages=100)
+    # 60000 cầu thủ, 1000 trang, mỗi trang 60 cầu thủ
+    scrape_sofifa(max_pages=1000)
